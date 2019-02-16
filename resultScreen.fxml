@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dance.resultScreenController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resultScreenBg.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="title" alignment="CENTER" layoutX="296.0" layoutY="95.0" prefHeight="49.0" prefWidth="689.0" text="乐曲名" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="gameScore" alignment="CENTER" layoutX="640.0" layoutY="156.0" prefHeight="65.0" prefWidth="386.0" text="游戏分数" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="rhythmPoints" alignment="CENTER" layoutX="640.0" layoutY="221.0" prefHeight="65.0" prefWidth="386.0" text="节奏得分" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="inputGain" alignment="CENTER" layoutX="640.0" layoutY="295.0" prefHeight="65.0" prefWidth="386.0" text="输入得分" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="perfectCnt" alignment="CENTER" layoutX="640.0" layoutY="360.0" prefHeight="65.0" prefWidth="386.0" text="PERFECT次数" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="greatCnt" alignment="CENTER" layoutX="640.0" layoutY="425.0" prefHeight="65.0" prefWidth="386.0" text="GREAT次数" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="goodCnt" alignment="CENTER" layoutX="640.0" layoutY="497.0" prefHeight="65.0" prefWidth="386.0" text="GOOD次数" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="rank" alignment="CENTER" layoutX="640.0" layoutY="562.0" prefHeight="65.0" prefWidth="386.0" text="得分评价" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField editable="false" layoutX="540.0" layoutY="657.0" onKeyPressed="#jump" opacity="0.55" text="请按键盘 J 键回到选曲界面！" />
+   </children>
+</Pane>
