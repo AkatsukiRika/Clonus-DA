@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -10,13 +11,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dance.gameScreenController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dance.gameScreenController">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1280.0">
-         <image>
-            <Image url="@gameScreenBg.jpg" />
-         </image>
-      </ImageView>
+      <MediaView fx:id="bga" fitHeight="720.0" fitWidth="1280.0" opacity="0.6">
+      </MediaView>
       <TextField fx:id="command" alignment="CENTER" editable="false" layoutY="245.0" opacity="0.6" prefHeight="75.0" prefWidth="1280.0" promptText="指令内容">
          <font>
             <Font size="36.0" />

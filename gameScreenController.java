@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -40,6 +41,8 @@ public class gameScreenController implements Initializable {
     Label score; // 分数
     @FXML
     Label judgement; // 判定
+    @FXML
+    MediaView bga; // 背景视频
 
     // Timeline动画
     Timeline rhythm;
@@ -93,7 +96,7 @@ public class gameScreenController implements Initializable {
                 judgePr++;
                 judgement.setText("POOR...");
                 judgement.setVisible(true);
-                max += 4000;
+                //max += 4000;
                 score.setText(String.valueOf(points));
             }
             else if(Math.abs(timing)>75 && Math.abs(timing)<100) {
@@ -101,7 +104,7 @@ public class gameScreenController implements Initializable {
                 judgement.setText("GOOD.");
                 judgement.setVisible(true);
                 points += 1000;
-                max += 4000;
+                //max += 4000;
                 score.setText(String.valueOf(points));
             }
             else if(Math.abs(timing)>50 && Math.abs(timing)<75) {
@@ -109,7 +112,7 @@ public class gameScreenController implements Initializable {
                 judgement.setText("GREAT!");
                 judgement.setVisible(true);
                 points += 2000;
-                max += 4000;
+                //max += 4000;
                 score.setText(String.valueOf(points));
             }
             else {
@@ -117,7 +120,7 @@ public class gameScreenController implements Initializable {
                 judgement.setText("PERFECT!!!");
                 judgement.setVisible(true);
                 points += 4000;
-                max += 4000;
+                //max += 4000;
                 score.setText(String.valueOf(points));
             }
 
@@ -130,7 +133,6 @@ public class gameScreenController implements Initializable {
                 String b = convert(playerInput.getText());
                 if(b.length()>0)
                     points += LCS(a, b) * 1000;
-                max += a.length()*1000;
                 String c = String.valueOf(points);
                 score.setText(String.join("", Collections.nCopies(7-c.length(), "0")) + c);
             }
@@ -140,7 +142,6 @@ public class gameScreenController implements Initializable {
                 String b1 = convert(playerInput.getText());
                 if(b1.length()>0)
                     points += LCS(a1, b1) * 1000;
-                max += a1.length()*1000;
                 String c1 = String.valueOf(points);
                 score.setText(String.join("", Collections.nCopies(7-c1.length(), "0")) + c1);
             }
@@ -167,6 +168,21 @@ public class gameScreenController implements Initializable {
             in += "↓";
             playerInput.setText(in);
         }
+    }
+
+    public void calcMaxScore(String std) {
+        // 获取当前这一串指令+节奏按下去能拿到的最高分数，用于max的计算
+        boolean flag = true;
+        for(int i=0; i<std.length(); i++) {
+            char temp = std.charAt(i);
+            if(temp=='↑' || temp=='↓' || temp=='←' || temp=='→')
+                continue;
+            else {
+                flag = false;
+                break;
+            }
+        }
+        if(flag) max += std.length()*1000 + 4000;
     }
 
     public int LCS(String s1, String s2) {
@@ -275,6 +291,12 @@ public class gameScreenController implements Initializable {
                 }
             }
 
+            String lastcmd = arrayList.get(pos-1);
+            lastcmd = convert(lastcmd);
+            calcMaxScore(lastcmd);
+            //System.out.println("节奏提示：" + lastcmd);
+            //System.out.println("最高分数：" + max);
+
             cmd = arrayList.get(pos);
             String cmds = convert(cmd);
             command.setText(cmds);
@@ -306,12 +328,16 @@ public class gameScreenController implements Initializable {
             // 先读二进制文件，读出选择的歌曲名在music.txt中的行数，匹配mp3并播放
             DataInputStream in = new DataInputStream(new FileInputStream("src/Dance/s.dat"));
             int index = in.readInt();
-            String mp3 = getClass().getResource(arrayList.get(index+2)).toString();
+            String temp = arrayList.get(index+2);
+            File Vfile = new File("src/Dance/" + temp);
+            String mp3 = Vfile.toURI().toString();
+
             System.out.println("选取的歌曲index为：" + index);
             System.out.println("mp3名字为：" + mp3);
 
             media[0] = new Media(mp3);
             mediaPlayer[0] = new MediaPlayer(media[0]);
+            bga.setMediaPlayer(mediaPlayer[0]);
             mediaPlayer[0].play();
 
             // 读取谱面文件，改写arrayList内容

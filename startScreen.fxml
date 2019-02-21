@@ -15,29 +15,34 @@
             <Image url="@startScreenBg.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="556.0" layoutY="14.0" text="抽筋DA" textFill="WHITE">
+      <Label layoutX="534.0" text="Clonus DA" textFill="#bc6a6a">
          <font>
-            <Font size="48.0" />
+            <Font name="Cambria Math" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="532.0" layoutY="75.0" text="请选择你喜欢的音乐" textFill="WHITE">
+      <Label layoutX="605.0" layoutY="82.0" text="Music" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="musicList" layoutX="540.0" layoutY="107.0" prefHeight="552.0" prefWidth="200.0" />
-      <Button fx:id="startBtn" layoutX="593.0" layoutY="676.0" mnemonicParsing="false" onAction="#startAct" text="开始跳舞！" />
-      <Label layoutX="211.0" layoutY="228.0" text="乐曲信息" textFill="WHITE">
+      <ListView fx:id="musicList" layoutX="527.0" layoutY="114.0" prefHeight="552.0" prefWidth="225.0" />
+      <Button fx:id="startBtn" layoutX="594.0" layoutY="676.0" mnemonicParsing="false" onAction="#startAct" text="Let's Go !!" />
+      <Label layoutX="199.0" layoutY="228.0" text="Music Info" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <TextArea fx:id="musicInfo" editable="false" layoutX="159.0" layoutY="260.0" opacity="0.75" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
-      <Label layoutX="993.0" layoutY="244.0" text="游戏信息" textFill="WHITE">
+      <Label layoutX="981.0" layoutY="244.0" text="Game Info" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextArea editable="false" layoutX="941.0" layoutY="276.0" opacity="0.75" prefHeight="200.0" prefWidth="200.0" text="游戏版本：v1.0.0&#10;开发者：Rika&#10;&#10;请请鼠标点击歌曲名。选中后会开始播放预览。" wrapText="true" />
+      <TextArea editable="false" layoutX="941.0" layoutY="276.0" opacity="0.75" prefHeight="200.0" prefWidth="200.0" text="游戏版本：v3.1&#10;开发者：Rika&#10;&#10;请请鼠标点击歌曲名。选中后会开始播放预览。" wrapText="true" />
+      <Label layoutX="489.0" layoutY="42.0" text="Fire Inside the Gym" textFill="#bc6a6a">
+         <font>
+            <Font name="Cambria Math" size="36.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

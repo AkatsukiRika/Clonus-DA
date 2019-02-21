@@ -22,9 +22,9 @@ public class resultScreenController implements Initializable {
     @FXML
     Pane pane;
     @FXML
-    Label title;
+    Label title, maxScore;
     @FXML
-    Label gameScore, rhythmPoints, inputGain, perfectCnt, greatCnt, goodCnt, rank;
+    Label gameScore, rhythmPoints, inputGain, perfectCnt, greatCnt, goodCnt, poorCnt, rank;
 
     public void jump(KeyEvent key) throws Exception {
         if(key.getCode() == KeyCode.J) {
@@ -47,10 +47,9 @@ public class resultScreenController implements Initializable {
             perfectCnt.setText(String.valueOf(in.readInt()));
             greatCnt.setText(String.valueOf(in.readInt()));
             goodCnt.setText(String.valueOf(in.readInt()));
-            int poorCnt = in.readInt();
-            System.out.println("poorCnt: " + poorCnt);
-            int maxScore = in.readInt();
-            System.out.println("maxScore: " + maxScore);
+            //int poorCnt = in.readInt();
+            poorCnt.setText(String.valueOf(in.readInt()));
+            maxScore.setText(String.valueOf(in.readInt()));
             title.setText(in.readUTF());
 
             /*
@@ -62,19 +61,19 @@ public class resultScreenController implements Initializable {
             * 70%：SAFE
             * 70%以下：ERROR
             */
-            double rate = Double.parseDouble(gameScore.getText()) / maxScore;
+            double rate = Double.parseDouble(gameScore.getText()) / Double.parseDouble(maxScore.getText());
             if(rate == 1)
-                rank.setText("MAXIMUM " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
             else if(rate > 0.98)
-                rank.setText("EXCELLENT " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
             else if(rate > 0.90)
-                rank.setText("SUPREME " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
             else if(rate > 0.80)
-                rank.setText("WELL-DONE " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
             else if(rate > 0.70)
-                rank.setText("SAFE " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
             else
-                rank.setText("ERROR " + (int)(rate*100));
+                rank.setText("" + (int)(rate*100) + "%");
         } catch (Exception e) {
             e.printStackTrace();
         }

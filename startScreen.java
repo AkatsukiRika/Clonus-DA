@@ -12,7 +12,7 @@ public class startScreen extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("startScreen.fxml"));
         Scene scene = new Scene(root, 1260, 700);
         stage.setScene(scene);
-        stage.setTitle("Dance v1.0");
+        stage.setTitle("Clonus DA 3.1");
         stage.setResizable(false);
         stage.show();
     }

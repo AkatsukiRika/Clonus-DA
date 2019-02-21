@@ -12,7 +12,7 @@ public class gameScreen extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("gameScreen.fxml"));
         Scene scene = new Scene(root, 1260, 700);
         stage.setScene(scene);
-        stage.setTitle("Dancing...");
+        stage.setTitle("Clonus curing...");
         stage.setResizable(false);
         stage.show();
     }
